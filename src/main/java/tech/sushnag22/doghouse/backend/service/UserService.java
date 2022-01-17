@@ -52,12 +52,12 @@ public class UserService {
     }
 
     public static boolean usernameValidator(String username) {
-        String pattern = ".{8,30}";
+        String pattern = ".{4,20}";
         return username.matches(pattern);
     }
 
     public static boolean passwordValidator(String password) {
-        String pattern = "(?=.*[0-9])(?=\\S+$).{8,}";
+        String pattern = "(?=.*[0-9])(?=\\S+$).{4,}";
         return password.matches(pattern);
     }
 
@@ -69,19 +69,19 @@ public class UserService {
     public List<String> isValid(User user) {
         List<String> notifications = new ArrayList<>();
         if(!usernameValidator(user.getUsername())) {
-            notifications.add("The username must be between 8 and 30 characters");
+            notifications.add("The username must be between 4 and 20 characters");
         }
         if(!passwordValidator(user.getPassword())) {
-            notifications.add("The password must be at least 8 characters and contain at least one number");
+            notifications.add("The password must be at least 4 characters and contain at least one number");
         }
         if(!emailValidator(user.getEmail())) {
-            notifications.add("The email must respect the proper format(example: johnsmith@example.com)");
+            notifications.add("Wrong email format");
         }
         if(user.getFirstName() == null || user.getFirstName().length() == 0) {
-            notifications.add("The first name field must not be blank");
+            notifications.add("The first name can't be blank");
         }
         if(user.getLastName() == null || user.getLastName().length() == 0) {
-            notifications.add("The last name must not be blank");
+            notifications.add("The last name can't be blank");
         }
         if(this.findByUsername(user.getUsername())) {
             notifications.add("The username already exists");
