@@ -18,12 +18,12 @@ public class SignInForm extends FormLayout {
 
     private UserService userService;
 
-    TextField username = new TextField("username");
-    PasswordField password = new PasswordField("password");
+    TextField username = new TextField("Username");
+    PasswordField password = new PasswordField("Password");
 
-    Button signInButton = new Button("Sign in");
+    Button signInButton = new Button("Sign In");
 
-    Span notAMember = new Span("Not a member?");
+    Span notAMember = new Span("New User?");
     Anchor signUp = new Anchor("registration", "Sign Up");
 
 
@@ -56,7 +56,7 @@ public class SignInForm extends FormLayout {
             UI.getCurrent().navigate("dashboard");
         } else {
             com.vaadin.flow.component.notification.Notification notification = new Notification(
-                    "BAD CREDENTIALS", 3000);
+                    "Wrong Credentials", 3000);
             notification.open();
         }
     }
