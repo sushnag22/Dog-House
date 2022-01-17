@@ -18,11 +18,9 @@ public class SignUpView extends VerticalLayout {
         H2 header = new H2("Register");
         HorizontalLayout horizontalLayout = new HorizontalLayout(header, signUpForm);
 
-        horizontalLayout.setWidthFull();
         horizontalLayout.setAlignItems(Alignment.CENTER);
         horizontalLayout.setJustifyContentMode(JustifyContentMode.CENTER);
 
-        setHeightFull();
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
         setHorizontalComponentAlignment(Alignment.CENTER, header);
