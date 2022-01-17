@@ -17,16 +17,16 @@ public class SignUpForm extends FormLayout {
 
     private UserService userService;
 
-    TextField username = new TextField("username");
-    PasswordField password = new PasswordField("password");
-    TextField email = new TextField("email");
-    TextField firstName = new TextField("first name");
-    TextField lastName = new TextField("last name");
+    TextField username = new TextField("Username");
+    PasswordField password = new PasswordField("Password");
+    TextField email = new TextField("Email");
+    TextField firstName = new TextField("First Name");
+    TextField lastName = new TextField("Last Name");
 
     Button signUpButton = new Button("Sign up");
 
-    Span alreadySignedUp = new Span("Already registered?");
-    Anchor goToLoginForm = new Anchor("","Sign in");
+    Span alreadySignedUp = new Span("Existing User?");
+    Anchor goToLoginForm = new Anchor("","Sign In");
 
 
     public SignUpForm(UserService userService) {
@@ -35,11 +35,11 @@ public class SignUpForm extends FormLayout {
         signUpButton.addClickListener(buttonClickEvent -> signUpEvent());
         signUpButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         add(new VerticalLayout(
-                username,
-                password,
-                email,
                 firstName,
                 lastName,
+                email,
+                username,
+                password,
                 signUpButton,
                 alreadySignedUp,
                 goToLoginForm
