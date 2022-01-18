@@ -2,6 +2,7 @@ package tech.sushnag22.doghouse.backend.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.Set;
 
 @Entity
 @Table
@@ -35,6 +36,13 @@ public class User {
     @NotEmpty
     private String lastName = "";
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Dog> dog;
+
+    public User() {
+
+    }
+
     public User(@NotNull @NotEmpty String username,
                 @NotNull @NotEmpty String password,
                 @Email @NotNull @NotEmpty String email,
@@ -45,9 +53,6 @@ public class User {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-    public User() {
-
     }
 
     public Long getId() {
@@ -96,6 +101,14 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public Set<Dog> getDog() {
+        return dog;
+    }
+
+    public void setDog(Set<Dog> dog) {
+        this.dog = dog;
     }
 
     @Override
