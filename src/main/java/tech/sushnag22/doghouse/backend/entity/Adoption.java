@@ -21,11 +21,11 @@ public class Adoption {
         @Column(nullable = false)
         private LocalDateTime adoptionDate;
 
-        @ManyToOne(cascade = CascadeType.DETACH, optional = false)
+        @ManyToOne(cascade = CascadeType.ALL, optional = false)
         @JoinColumn(name = "adopter_id", nullable = false)
         private Adopter adopter;
 
-        @OneToOne(cascade = CascadeType.DETACH, optional = false)
+        @OneToOne(cascade = CascadeType.ALL, optional = false)
         @JoinColumn(name = "dog_id", nullable = false, unique = true)
         private Dog dog;
 
