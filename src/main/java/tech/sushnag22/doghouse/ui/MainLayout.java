@@ -12,9 +12,6 @@ import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import tech.sushnag22.doghouse.backend.entity.User;
-import tech.sushnag22.doghouse.ui.views.AdopterView;
-import tech.sushnag22.doghouse.ui.views.AdoptionView;
-import tech.sushnag22.doghouse.ui.views.DogView;
 import tech.sushnag22.doghouse.ui.views.SignInView;
 
 @Route(value = "home")
@@ -32,7 +29,7 @@ public class MainLayout extends AppLayout {
 
     private void createHeader() {
 
-        H2 userGreeting = new H2("Hello, " + ComponentUtil.getData(UI.getCurrent(), User.class).getFirstName());
+        H2 userGreeting = new H2("Hello, " + ComponentUtil.getData(UI.getCurrent(), User.class).getFirstName() + "!");
 
         userGreeting.addClassName("logo");
         HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), userGreeting);
@@ -47,15 +44,9 @@ public class MainLayout extends AppLayout {
 
     private void createDrawer() {
 
-        RouterLink editDogLink = new RouterLink("Edit Dog Details", DogView.class);
-        editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
-        RouterLink editAdopterLink = new RouterLink("Edit Adopter Details", AdopterView.class);
-        editAdopterLink.setHighlightCondition(HighlightConditions.sameLocation());
-        RouterLink manageAdoptionLink = new RouterLink("Manage Adoption", AdoptionView.class);
-        editAdopterLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink logOutLink = new RouterLink("Log out", SignInView.class);
         logOutLink.setHighlightCondition(HighlightConditions.sameLocation());
-        addToDrawer(new VerticalLayout(logOutLink, editDogLink, editAdopterLink, manageAdoptionLink));
+        addToDrawer(new VerticalLayout(logOutLink));
     }
 
 }
