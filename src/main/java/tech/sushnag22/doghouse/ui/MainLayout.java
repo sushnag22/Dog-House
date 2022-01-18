@@ -48,11 +48,11 @@ public class MainLayout extends AppLayout {
     private void createDrawer() {
 
         RouterLink editDogLink = new RouterLink("Edit Dog Details", DogView.class);
-        logOutLink.setHighlightCondition(HighlightConditions.sameLocation());
+        editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink editAdopterLink = new RouterLink("Edit Adopter Details", AdopterView.class);
-        logOutLink.setHighlightCondition(HighlightConditions.sameLocation());
+        editAdopterLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink manageAdoptionLink = new RouterLink("Manage Adoption", AdoptionView.class);
-        logOutLink.setHighlightCondition(HighlightConditions.sameLocation());
+        editAdopterLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink logOutLink = new RouterLink("Log out", SignInView.class);
         logOutLink.setHighlightCondition(HighlightConditions.sameLocation());
         addToDrawer(new VerticalLayout(logOutLink, editDogLink, editAdopterLink, manageAdoptionLink));
