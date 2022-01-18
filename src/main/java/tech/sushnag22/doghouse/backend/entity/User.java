@@ -39,6 +39,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Dog> dog;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Adopter> adopter;
+
     public User() {
 
     }
