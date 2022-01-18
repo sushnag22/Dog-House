@@ -22,7 +22,7 @@ public class Adoption {
         private LocalDateTime adoptionDate;
 
         @ManyToOne(cascade = CascadeType.ALL, optional = false)
-        @JoinColumn(name = "adopter_id", nullable = false)
+        @JoinColumn(name = "adopter_id", referencedColumnName = "id", nullable = false)
         private Adopter adopter;
 
         @OneToOne(cascade = CascadeType.ALL, optional = false)
