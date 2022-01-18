@@ -6,7 +6,5 @@ import tech.sushnag22.doghouse.backend.entity.Adopter;
 import java.util.List;
 
 public interface AdopterRepository extends JpaRepository<Adopter, Long> {
-    List<Adopter> findByNameContainsIgnoreCase(String name);
-
-    List<Adopter> findByGender(Character gender);
+    List<Adopter> findByFirstNameContainsIgnoreCase(String name);
 }
