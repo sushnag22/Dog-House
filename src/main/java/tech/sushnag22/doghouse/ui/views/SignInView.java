@@ -16,16 +16,13 @@ public class SignInView  extends VerticalLayout {
         SignInForm signInForm = new SignInForm(userService);
         H2 header = new H2("Sign in");
         HorizontalLayout horizontalLayout = new HorizontalLayout(signInForm);
-
         horizontalLayout.setWidthFull();
         horizontalLayout.setAlignItems(Alignment.CENTER);
         horizontalLayout.setJustifyContentMode(JustifyContentMode.CENTER);
-
         setHeightFull();
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
         setHorizontalComponentAlignment(Alignment.CENTER, header);
-
         add(header, horizontalLayout);
     }
 }
