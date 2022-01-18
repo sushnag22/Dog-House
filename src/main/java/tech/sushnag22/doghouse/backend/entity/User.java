@@ -16,12 +16,12 @@ public class User {
     @NotNull
     @NotEmpty
     @Column(unique = true)
-    @Size(min = 8, max = 30)
+    @Size(min = 4, max = 20)
     private String username = "";
 
     @NotNull
     @NotEmpty
-    @Size(min = 8)
+    @Size(min = 4)
     private String password = "";
 
     @Email
