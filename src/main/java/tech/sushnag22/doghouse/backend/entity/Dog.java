@@ -31,12 +31,15 @@ public class Dog {
     private String location;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "breed_id")
+    @JoinColumn(name = "breed_id", nullable = false)
     private Breed breed;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToOne(mappedBy = "dog", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Adoption adoption;
 
     public Dog() {
 
@@ -121,6 +124,14 @@ public class Dog {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Adoption getAdoption() {
+        return adoption;
+    }
+
+    public void setAdoption(Adoption adoption) {
+        this.adoption = adoption;
     }
 
     @Override
