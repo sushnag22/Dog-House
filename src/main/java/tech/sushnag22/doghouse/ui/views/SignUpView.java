@@ -7,7 +7,7 @@ import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.backend.service.UserService;
 import tech.sushnag22.doghouse.ui.components.SignUpForm;
 
-@Route("registration")
+@Route("signup")
 public class SignUpView extends VerticalLayout {
 
     private UserService userService;
@@ -15,7 +15,7 @@ public class SignUpView extends VerticalLayout {
     public SignUpView(UserService userService) {
         this.userService = userService;
         SignUpForm signUpForm = new SignUpForm(userService);
-        H2 header = new H2("Register");
+        H2 header = new H2("Sign Up");
         HorizontalLayout horizontalLayout = new HorizontalLayout(header, signUpForm);
         horizontalLayout.setAlignItems(Alignment.CENTER);
         horizontalLayout.setJustifyContentMode(JustifyContentMode.CENTER);
