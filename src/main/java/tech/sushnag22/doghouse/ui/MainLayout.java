@@ -17,7 +17,7 @@ import tech.sushnag22.doghouse.ui.views.AdoptionView;
 import tech.sushnag22.doghouse.ui.views.DogView;
 import tech.sushnag22.doghouse.ui.views.SignInView;
 
-@Route(value = "home-view")
+@Route(value = "home")
 public class MainLayout extends AppLayout {
 
     public MainLayout() {
