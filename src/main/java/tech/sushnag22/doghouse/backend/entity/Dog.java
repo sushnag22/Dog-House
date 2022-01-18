@@ -15,7 +15,7 @@ public class Dog {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "birthDate")
+    @Column(name = "birth_date")
     private Date birthDate;
 
     @Column(name = "gender")
@@ -103,8 +103,8 @@ public class Dog {
         return location;
     }
 
-    public void setLocation(String description) {
-        this.description = description;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public Breed getBreed() {
@@ -124,7 +124,8 @@ public class Dog {
     }
 
     @Override
-    public String toString() {
-        return "Dog [id = " + id + ", name = " + name + ", gender = " + gender + ", colour = " + colour + ", description = " + description + ", location = " + location + "]";
+    public boolean equals(Object obj) {
+        return obj != null && obj.getClass().equals(this.getClass()) && ((Dog)obj).getId().equals(this.getId());
     }
+
 }
