@@ -5,15 +5,16 @@ import javax.validation.constraints.*;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @NotNull
     @NotEmpty
-    @Column(unique = true)
+    @Column(name = "username", unique = true)
     @Size(min = 4, max = 20)
     private String username = "";
 
@@ -25,15 +26,17 @@ public class User {
     @Email
     @NotNull
     @NotEmpty
-    @Column(unique = true)
+    @Column(name = "email", unique = true)
     private String email = "";
 
     @NotNull
     @NotEmpty
+    @Column(name = "first_name")
     private String firstName = "";
 
     @NotNull
     @NotEmpty
+    @Column(name = "last_name")
     private String lastName = "";
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -112,6 +115,14 @@ public class User {
 
     public void setDog(Set<Dog> dog) {
         this.dog = dog;
+    }
+
+    public Set<Adopter> getAdopter() {
+        return adopter;
+    }
+
+    public void setAdopter(Set<Adopter> adopter) {
+        this.adopter = adopter;
     }
 
     @Override
