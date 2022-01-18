@@ -24,7 +24,7 @@ public class SignInForm extends FormLayout {
     Button signInButton = new Button("Sign In");
 
     Span notAMember = new Span("New User?");
-    Anchor signUp = new Anchor("registration", "Sign Up");
+    Anchor signUp = new Anchor("signup", "Sign Up");
 
 
     public SignInForm(UserService userService) {
@@ -53,7 +53,7 @@ public class SignInForm extends FormLayout {
 
         if(user != null) {
             ComponentUtil.setData( UI.getCurrent() , User.class , user);
-            UI.getCurrent().navigate("dashboard");
+            UI.getCurrent().navigate("home");
         } else {
             com.vaadin.flow.component.notification.Notification notification = new Notification(
                     "Wrong Credentials", 3000);
