@@ -7,7 +7,7 @@ import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.backend.service.UserService;
 import tech.sushnag22.doghouse.ui.components.SignUpForm;
 
-@Route("signup")
+@Route("registration")
 public class SignUpView extends VerticalLayout {
 
     private UserService userService;
