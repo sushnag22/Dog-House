@@ -58,7 +58,7 @@ public class SignUpForm extends FormLayout {
             userService.save(user);
             UI.getCurrent().navigate("");
         } else {
-            System.out.println("not ok");
+            System.out.println("Error");
             for (String s : userService.isValid(user)) {
                 Notification notification = new Notification(s, 3000);
                 notification.open();
@@ -66,4 +66,5 @@ public class SignUpForm extends FormLayout {
         }
 
     }
+
 }

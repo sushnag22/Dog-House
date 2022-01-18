@@ -24,7 +24,7 @@ public class SignInForm extends FormLayout {
     Button signInButton = new Button("Sign In");
 
     Span notAMember = new Span("New User?");
-    Anchor signUp = new Anchor("registration", "Sign Up");
+    Anchor signUp = new Anchor("signup", "Sign Up");
 
 
     public SignInForm(UserService userService) {
@@ -49,11 +49,11 @@ public class SignInForm extends FormLayout {
 
     public void SignInEvent() {
 
-        User user = userService.findUserByUsernameAndPassword((String)username.getValue(), (String)password.getValue());
+        User user = userService.findUserByUsernameAndPassword(username.getValue(), password.getValue());
 
         if(user != null) {
             ComponentUtil.setData( UI.getCurrent() , User.class , user);
-            UI.getCurrent().navigate("dashboard");
+            UI.getCurrent().navigate("home-view");
         } else {
             com.vaadin.flow.component.notification.Notification notification = new Notification(
                     "Wrong Credentials", 3000);
