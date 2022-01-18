@@ -9,7 +9,7 @@ public class Breed {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "breed_id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "name")
