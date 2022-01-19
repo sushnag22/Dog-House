@@ -1,4 +1,4 @@
-package tech.sushnag22.doghouse.ui.views;
+package tech.sushnag22.doghouse.ui.views.error;
 
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.H1;

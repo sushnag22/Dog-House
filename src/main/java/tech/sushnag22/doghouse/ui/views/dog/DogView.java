@@ -1,4 +1,4 @@
-package tech.sushnag22.doghouse.ui.views;
+package tech.sushnag22.doghouse.ui.views.dog;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;

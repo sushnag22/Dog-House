@@ -1,4 +1,4 @@
-package tech.sushnag22.doghouse.ui.views;
+package tech.sushnag22.doghouse.ui.views.adoption;
 
 import tech.sushnag22.doghouse.backend.entity.Adopter;
 import tech.sushnag22.doghouse.backend.entity.Adoption;

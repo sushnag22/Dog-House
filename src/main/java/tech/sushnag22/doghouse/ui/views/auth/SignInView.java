@@ -1,4 +1,4 @@
-package tech.sushnag22.doghouse.ui.views;
+package tech.sushnag22.doghouse.ui.views.auth;
 
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;

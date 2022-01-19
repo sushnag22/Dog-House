@@ -1,7 +1,7 @@
-package tech.sushnag22.doghouse.ui.views;
+package tech.sushnag22.doghouse.ui.views.dog;
 
-import tech.sushnag22.doghouse.backend.entity.Adopter;
-import tech.sushnag22.doghouse.backend.repository.AdopterRepository;
+import tech.sushnag22.doghouse.backend.entity.Dog;
+import tech.sushnag22.doghouse.backend.repository.DogRepository;
 import tech.sushnag22.doghouse.ui.components.ConfirmDialog;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyNotifier;
@@ -18,27 +18,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @UIScope
 @SpringComponent
-public class AdopterEditView extends VerticalLayout implements KeyNotifier {
-    private final AdopterRepository adopterRepository;
-    private Adopter adopter;
+public class DogEditView extends VerticalLayout implements KeyNotifier {
+    private final DogRepository dogRepository;
+    private Dog dog;
     private final Button saveButton;
     private final Button deleteButton;
     private final Button cancelButton;
     private final HorizontalLayout buttonsHorizontalLayout;
-    private final Binder<Adopter> binder;
-    private final TextField firstName;
-    private final TextField lastName;
+    private final Binder<Dog> binder;
+    private final TextField name;
     private final DatePicker birthDate;
     private final TextField gender;
-    private final TextField email;
-    private final TextField phone;
-    private final TextField address;
+    private final TextField colour;
+    private final TextField description;
+    private final TextField location;
     private final ConfirmDialog confirmDialog;
-    private AdopterEditViewHandler adopterEditViewHandler;
+    private DogEditViewHandler dogEditViewHandler;
 
     @Autowired
-    public AdopterEditView(AdopterRepository adopterRepository) {
-        this.adopterRepository = adopterRepository;
+    public DogEditView(DogRepository dogRepository) {
+        this.dogRepository = dogRepository;
 
         this.saveButton = new Button("Save", VaadinIcon.CHECK.create());
         this.deleteButton = new Button("Delete", VaadinIcon.TRASH.create());
@@ -54,59 +53,57 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
 
         this.buttonsHorizontalLayout = new HorizontalLayout(saveButton, deleteButton, cancelButton);
 
-        this.firstName = new TextField("First Name: ");
-        this.lastName = new TextField("Last Name: ");
+        this.name = new TextField("Name: ");
         this.birthDate = new DatePicker("Birth Date: ");
         this.gender = new TextField("Gender: ");
-        this.email = new TextField("Email ID: ");
-        this.phone = new TextField("Phone Number: ");
-        this.address = new TextField("Address: ");
+        this.colour = new TextField("Colour: ");
+        this.description = new TextField("Description: ");
+        this.location = new TextField("Location: ");
 
-        this.binder = new Binder<>(Adopter.class);
+        this.binder = new Binder<>(Dog.class);
         this.binder.bindInstanceFields(this);
 
         this.addKeyPressListener(Key.ENTER, e -> save());
         this.confirmDialog = new ConfirmDialog("Are you sure you want to delete the item?", e -> {
-            this.adopterRepository.delete(adopter);
-            this.adopterEditViewHandler.onChange();
-            this.adopter = null;
+            this.dogRepository.delete(dog);
+            this.dogEditViewHandler.onChange();
+            this.dog = null;
         });
 
-        this.add(firstName);
-        this.add(lastName);
+        this.add(name);
         this.add(birthDate);
         this.add(gender);
-        this.add(email);
-        this.add(phone);
-        this.add(address);
+        this.add(colour);
+        this.add(description);
+        this.add(location);
         this.add(buttonsHorizontalLayout);
         this.setVisible(false);
     }
 
-    public void setAdopter(Adopter adopter) {
-        if (adopter != null) {
-            if (adopter.getId() != null) {
-                this.adopter = adopterRepository.findById(adopter.getId()).get();
+    public void setDog(Dog dog) {
+        if (dog != null) {
+            if (dog.getId() != null) {
+                this.dog = dogRepository.findById(dog.getId()).get();
             } else {
-                this.adopter = adopter;
+                this.dog = dog;
             }
 
-            this.binder.setBean(this.adopter);
+            this.binder.setBean(this.dog);
             this.setVisible(true);
-            this.firstName.focus();
+            this.name.focus();
         }else{
-            this.adopter = null;
+            this.dog = null;
         }
     }
 
-    public void setAdopterEditViewHandler(AdopterEditView.AdopterEditViewHandler adopterEditViewHandler) {
-        this.adopterEditViewHandler = adopterEditViewHandler;
+    public void setDogEditViewHandler(DogEditViewHandler dogEditViewHandler) {
+        this.dogEditViewHandler = dogEditViewHandler;
     }
 
     private void save() {
-        this.adopterRepository.save(adopter);
-        this.adopterEditViewHandler.onChange();
-        this.adopter = null;
+        this.dogRepository.save(dog);
+        this.dogEditViewHandler.onChange();
+        this.dog = null;
     }
 
     private void delete() {
@@ -114,11 +111,11 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
     }
 
     private void cancel() {
-        this.adopter = null;
-        this.adopterEditViewHandler.onChange();
+        this.dog = null;
+        this.dogEditViewHandler.onChange();
     }
 
-    public interface AdopterEditViewHandler {
+    public interface DogEditViewHandler {
         void onChange();
     }
 
