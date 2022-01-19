@@ -12,6 +12,8 @@ import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import tech.sushnag22.doghouse.backend.entity.User;
+import tech.sushnag22.doghouse.ui.views.AdopterView;
+import tech.sushnag22.doghouse.ui.views.DogView;
 import tech.sushnag22.doghouse.ui.views.SignInView;
 
 @Route(value = "home")
@@ -44,9 +46,13 @@ public class MainLayout extends AppLayout {
 
     private void createDrawer() {
 
+        RouterLink editDogLink = new RouterLink("Edit Dog Details", DogView.class);
+        editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
+        RouterLink editAdopterLink = new RouterLink("Edit Adopter Details", AdopterView.class);
+        editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink logOutLink = new RouterLink("Log out", SignInView.class);
-        logOutLink.setHighlightCondition(HighlightConditions.sameLocation());
-        addToDrawer(new VerticalLayout(logOutLink));
+        editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
+        addToDrawer(new VerticalLayout(editDogLink, editAdopterLink ,logOutLink));
     }
 
 }
