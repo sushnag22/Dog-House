@@ -13,6 +13,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import tech.sushnag22.doghouse.backend.entity.User;
 import tech.sushnag22.doghouse.ui.views.AdopterView;
+import tech.sushnag22.doghouse.ui.views.AdoptionView;
 import tech.sushnag22.doghouse.ui.views.DogView;
 import tech.sushnag22.doghouse.ui.views.SignInView;
 
@@ -50,9 +51,11 @@ public class MainLayout extends AppLayout {
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink editAdopterLink = new RouterLink("Edit Adopter Details", AdopterView.class);
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
+        RouterLink manageAdoptionLink = new RouterLink("Manage Adoption", AdoptionView.class);
+        editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink logOutLink = new RouterLink("Log out", SignInView.class);
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
-        addToDrawer(new VerticalLayout(editDogLink, editAdopterLink ,logOutLink));
+        addToDrawer(new VerticalLayout(editDogLink, editAdopterLink, manageAdoptionLink,logOutLink));
     }
 
 }
