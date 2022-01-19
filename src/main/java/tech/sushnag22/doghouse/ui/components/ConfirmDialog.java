@@ -16,7 +16,7 @@ public final class ConfirmDialog extends Dialog {
 
     public ConfirmDialog(String message, ComponentEventListener okListener){
         this.text = new Text(message);
-        this.okButton = new Button("Ok");
+        this.okButton = new Button("Confirm");
         this.cancelButton = new Button("Cancel");
 
         this.okButton.getElement().getThemeList().add("primary");
