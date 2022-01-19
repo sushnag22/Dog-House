@@ -1,7 +1,7 @@
 package tech.sushnag22.doghouse.backend.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "dog")
@@ -16,7 +16,7 @@ public class Dog {
     private String name;
 
     @Column(name = "birth_date")
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Column(name = "gender")
     private String gender;
@@ -31,11 +31,11 @@ public class Dog {
     private String location;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "breed_id", nullable = false)
+    @JoinColumn(name = "breed_id", nullable = true)
     private Breed breed;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
     @OneToOne(mappedBy = "dog", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -45,7 +45,7 @@ public class Dog {
 
     }
 
-    public Dog(String name, Date birthDate, String gender, String colour, String description, String location) {
+    public Dog(String name, LocalDate birthDate, String gender, String colour, String description, String location) {
         this.name = name;
         this.birthDate=birthDate;
         this.gender=gender;
@@ -70,11 +70,11 @@ public class Dog {
         this.name = name;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void  setBirthDate(Date birthDate) {
+    public void  setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
