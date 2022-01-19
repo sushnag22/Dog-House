@@ -1,7 +1,7 @@
 package tech.sushnag22.doghouse.backend.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "adopter")
@@ -19,7 +19,7 @@ public class Adopter {
     private String lastName;
 
     @Column(name = "birth_date")
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Column(name = "gender")
     private String gender;
@@ -34,14 +34,14 @@ public class Adopter {
     private String address;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
     public Adopter() {
 
     }
 
-    public Adopter(String firstName, String lastName, Date birthDate, String gender, String email, String phone, String address) {
+    public Adopter(String firstName, String lastName, LocalDate birthDate, String gender, String email, String phone, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
@@ -75,11 +75,11 @@ public class Adopter {
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void  setBirthDate(Date birthDate) {
+    public void  setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
