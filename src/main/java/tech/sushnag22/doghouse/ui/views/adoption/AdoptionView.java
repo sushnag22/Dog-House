@@ -10,8 +10,9 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.backend.entity.Adoption;
 import tech.sushnag22.doghouse.backend.repository.AdoptionRepository;
+import tech.sushnag22.doghouse.ui.MainLayout;
 
-@Route("manage-adoption")
+@Route(value = "manage-adoption", layout = MainLayout.class)
 @PageTitle("Manage Dog Adoption")
 public class AdoptionView extends VerticalLayout {
     private final AdoptionRepository adoptionRepository;

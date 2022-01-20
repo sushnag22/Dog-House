@@ -9,8 +9,9 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.backend.entity.Dog;
 import tech.sushnag22.doghouse.backend.repository.DogRepository;
+import tech.sushnag22.doghouse.ui.MainLayout;
 
-@Route("edit-dog")
+@Route(value = "edit-dog", layout = MainLayout.class)
 @PageTitle("Edit Dog Details")
 public class DogView extends VerticalLayout {
 

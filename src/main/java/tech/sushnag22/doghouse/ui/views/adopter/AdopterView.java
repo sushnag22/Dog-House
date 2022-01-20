@@ -9,8 +9,9 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.backend.entity.Adopter;
 import tech.sushnag22.doghouse.backend.repository.AdopterRepository;
+import tech.sushnag22.doghouse.ui.MainLayout;
 
-@Route("edit-adopter")
+@Route(value = "edit-adopter", layout = MainLayout.class)
 @PageTitle("Edit Adopter Details")
 public class AdopterView extends VerticalLayout {
 
