@@ -14,7 +14,6 @@ import com.vaadin.flow.router.RouterLink;
 import tech.sushnag22.doghouse.backend.entity.User;
 import tech.sushnag22.doghouse.ui.views.adopter.AdopterView;
 import tech.sushnag22.doghouse.ui.views.adoption.AdoptionView;
-import tech.sushnag22.doghouse.ui.views.breed.BreedView;
 import tech.sushnag22.doghouse.ui.views.dog.DogView;
 import tech.sushnag22.doghouse.ui.views.auth.SignInView;
 
@@ -48,8 +47,6 @@ public class MainLayout extends AppLayout {
 
     private void createDrawer() {
 
-        RouterLink addBreedLink = new RouterLink("Add Dog Breed", BreedView.class);
-        addBreedLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink editDogLink = new RouterLink("Edit Dog Details", DogView.class);
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink editAdopterLink = new RouterLink("Edit Adopter Details", AdopterView.class);
@@ -58,7 +55,7 @@ public class MainLayout extends AppLayout {
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink logOutLink = new RouterLink("Log out", SignInView.class);
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
-        addToDrawer(new VerticalLayout(addBreedLink, editDogLink, editAdopterLink, manageAdoptionLink,logOutLink));
+        addToDrawer(new VerticalLayout(editDogLink, editAdopterLink, manageAdoptionLink,logOutLink));
     }
 
 }
