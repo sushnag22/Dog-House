@@ -1,5 +1,6 @@
 package tech.sushnag22.doghouse.ui.components;
 
+import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -34,6 +35,7 @@ public class SignUpForm extends FormLayout {
         this.userService = userService;
         signUpButton.addClickListener(buttonClickEvent -> signUpEvent());
         signUpButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        signUpButton.addClickShortcut(Key.ENTER);
         add(new VerticalLayout(
                 firstName,
                 lastName,
