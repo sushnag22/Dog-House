@@ -26,8 +26,7 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
     private final Button cancelButton;
     private final HorizontalLayout buttonsHorizontalLayout;
     private final Binder<Adopter> binder;
-    private final TextField firstName;
-    private final TextField lastName;
+    private final TextField name;
     private final DatePicker birthDate;
     private final TextField gender;
     private final TextField email;
@@ -54,8 +53,7 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
 
         this.buttonsHorizontalLayout = new HorizontalLayout(saveButton, deleteButton, cancelButton);
 
-        this.firstName = new TextField("First Name: ");
-        this.lastName = new TextField("Last Name: ");
+        this.name = new TextField("Name: ");
         this.birthDate = new DatePicker("Birth Date: ");
         this.gender = new TextField("Gender: ");
         this.email = new TextField("Email ID: ");
@@ -72,8 +70,7 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
             this.adopter = null;
         });
 
-        this.add(firstName);
-        this.add(lastName);
+        this.add(name);
         this.add(birthDate);
         this.add(gender);
         this.add(email);
@@ -93,7 +90,7 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
 
             this.binder.setBean(this.adopter);
             this.setVisible(true);
-            this.firstName.focus();
+            this.name.focus();
         }else{
             this.adopter = null;
         }
