@@ -58,7 +58,7 @@ public class Adoption {
                 return adopter;
         }
 
-        public void setCustomer(Adopter adopter) {
+        public void setAdopter(Adopter adopter) {
                 this.adopter = adopter;
         }
 
