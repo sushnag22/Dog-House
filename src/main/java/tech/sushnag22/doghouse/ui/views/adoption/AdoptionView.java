@@ -30,7 +30,7 @@ public class AdoptionView extends VerticalLayout {
         this.textField.addValueChangeListener(e -> this.refreshGrid(e.getValue()));
 
         this.grid = new Grid<>(Adoption.class);
-        this.grid.setColumns("adoptionDate", "adopter.firstName", "dog.name");
+        this.grid.setColumns("adoptionDate", "adopter.name", "dog.name");
         this.grid.asSingleSelect().addValueChangeListener(e -> adoptionEditView.setAdoption(e.getValue()));
         this.refreshGrid(null);
 
@@ -52,7 +52,7 @@ public class AdoptionView extends VerticalLayout {
     private void refreshGrid(String filter){
         this.grid.setItems(
                 filter != null && !"".equals(filter.trim())?
-                        adoptionRepository.findByAdopter_FirstNameContainsIgnoreCase(filter)
+                        adoptionRepository.findByAdopter_NameContainsIgnoreCase(filter)
                         :
                         adoptionRepository.findAll()
         );
