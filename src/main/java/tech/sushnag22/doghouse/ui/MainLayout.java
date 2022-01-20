@@ -10,7 +10,6 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import tech.sushnag22.doghouse.backend.entity.User;
 import tech.sushnag22.doghouse.ui.views.adopter.AdopterView;
@@ -19,7 +18,6 @@ import tech.sushnag22.doghouse.ui.views.dog.DogView;
 import tech.sushnag22.doghouse.ui.views.auth.SignInView;
 
 @JsModule("./js/theme-selector.js")
-@Route(value = "home")
 public class MainLayout extends AppLayout {
 
     public MainLayout() {
