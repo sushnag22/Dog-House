@@ -30,7 +30,7 @@ public class AdopterView extends VerticalLayout {
         this.textField.addValueChangeListener(e -> refreshGrid(e.getValue()));
 
         this.grid = new Grid<>(Adopter.class);
-        this.grid.setColumns("name","birthDate", "gender", "email", "phone", "address");
+        this.grid.setColumns("user.username","name","birthDate", "gender", "email", "phone", "address");
         this.grid.asSingleSelect().addValueChangeListener(e -> adopterEditView.setAdopter(e.getValue()));
         this.refreshGrid(null);
 
