@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -17,6 +18,7 @@ import tech.sushnag22.doghouse.ui.views.adoption.AdoptionView;
 import tech.sushnag22.doghouse.ui.views.dog.DogView;
 import tech.sushnag22.doghouse.ui.views.auth.SignInView;
 
+@JsModule("./js/theme-selector.js")
 @Route(value = "home")
 public class MainLayout extends AppLayout {
 
