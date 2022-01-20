@@ -1,12 +1,5 @@
 package tech.sushnag22.doghouse.ui.views.adoption;
 
-import tech.sushnag22.doghouse.backend.entity.Adopter;
-import tech.sushnag22.doghouse.backend.entity.Adoption;
-import tech.sushnag22.doghouse.backend.entity.Dog;
-import tech.sushnag22.doghouse.backend.repository.AdopterRepository;
-import tech.sushnag22.doghouse.backend.repository.AdoptionRepository;
-import tech.sushnag22.doghouse.backend.repository.DogRepository;
-import tech.sushnag22.doghouse.ui.components.ConfirmDialog;
 import com.vaadin.flow.component.KeyNotifier;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datetimepicker.DateTimePicker;
@@ -18,6 +11,13 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.spring.annotation.UIScope;
 import org.springframework.beans.factory.annotation.Autowired;
+import tech.sushnag22.doghouse.backend.entity.Adopter;
+import tech.sushnag22.doghouse.backend.entity.Adoption;
+import tech.sushnag22.doghouse.backend.entity.Dog;
+import tech.sushnag22.doghouse.backend.repository.AdopterRepository;
+import tech.sushnag22.doghouse.backend.repository.AdoptionRepository;
+import tech.sushnag22.doghouse.backend.repository.DogRepository;
+import tech.sushnag22.doghouse.ui.components.ConfirmDialog;
 
 @SpringComponent
 @UIScope
@@ -65,7 +65,7 @@ public class AdoptionEditView extends VerticalLayout implements KeyNotifier {
         this.adopter.setLabel("Adopter: ");
         this.dog.setLabel("Dog: ");
 
-        this.adopter.setItemLabelGenerator(Adopter::getFirstName);
+        this.adopter.setItemLabelGenerator(Adopter::getName);
         this.dog.setItemLabelGenerator(Dog::getName);
 
         this.adopter.setItems(this.adopterRepository.findAll());
@@ -120,5 +120,4 @@ public class AdoptionEditView extends VerticalLayout implements KeyNotifier {
     public interface AdoptionEditViewHandler{
         void onChange();
     }
-
 }
