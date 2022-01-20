@@ -30,7 +30,7 @@ public class AdopterView extends VerticalLayout {
         this.textField.addValueChangeListener(e -> refreshGrid(e.getValue()));
 
         this.grid = new Grid<>(Adopter.class);
-        this.grid.setColumns("firstName", "lastName" ,"birthDate", "gender", "email", "phone", "address");
+        this.grid.setColumns("name","birthDate", "gender", "email", "phone", "address");
         this.grid.asSingleSelect().addValueChangeListener(e -> adopterEditView.setAdopter(e.getValue()));
         this.refreshGrid(null);
 
@@ -51,7 +51,7 @@ public class AdopterView extends VerticalLayout {
     private void refreshGrid(String name) {
         grid.setItems(
                 name != null && !"".equals(name.trim()) ?
-                        adopterRepository.findByFirstNameContainsIgnoreCase(name)
+                        adopterRepository.findByNameContainsIgnoreCase(name)
                         :
                         adopterRepository.findAll()
         );
