@@ -12,11 +12,8 @@ public class Adopter {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
@@ -41,9 +38,8 @@ public class Adopter {
 
     }
 
-    public Adopter(String firstName, String lastName, LocalDate birthDate, String gender, String email, String phone, String address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Adopter(String name, LocalDate birthDate, String gender, String email, String phone, String address) {
+        this.name = name;
         this.birthDate = birthDate;
         this.gender = gender;
         this.email = email;
@@ -59,20 +55,12 @@ public class Adopter {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDate getBirthDate() {
