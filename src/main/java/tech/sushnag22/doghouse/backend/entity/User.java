@@ -39,10 +39,10 @@ public class User {
     @Column(name = "last_name")
     private String lastName = "";
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
     private Set<Dog> dog;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
     private Set<Adopter> adopter;
 
     public User() {
