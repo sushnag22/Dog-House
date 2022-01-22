@@ -15,7 +15,7 @@ public class Breed {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "breed", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "breed", cascade = CascadeType.MERGE)
     private Set<Dog> dog;
 
     public Breed() {
@@ -41,7 +41,6 @@ public class Breed {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public Set<Dog> getDog() {
         return dog;
