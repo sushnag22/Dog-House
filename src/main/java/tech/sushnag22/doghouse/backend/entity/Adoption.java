@@ -21,11 +21,11 @@ public class Adoption {
         @Column(nullable = false)
         private LocalDateTime adoptionDate;
 
-        @ManyToOne(cascade = CascadeType.ALL, optional = false)
+        @ManyToOne(cascade = CascadeType.MERGE, optional = false)
         @JoinColumn(name = "adopter_id", referencedColumnName = "id", nullable = false)
         private Adopter adopter;
 
-        @OneToOne(cascade = CascadeType.ALL, optional = false)
+        @OneToOne(cascade = CascadeType.MERGE, optional = false)
         @JoinColumn(name = "dog_id", nullable = false, unique = true)
         private Dog dog;
 
