@@ -85,13 +85,13 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
         });
 
         this.add(this.user);
-        this.add(name);
-        this.add(birthDate);
-        this.add(gender);
-        this.add(colour);
-        this.add(description);
-        this.add(location);
-        this.add(buttonsHorizontalLayout);
+        this.add(this.name);
+        this.add(this.birthDate);
+        this.add(this.gender);
+        this.add(this.colour);
+        this.add(this.description);
+        this.add(this.location);
+        this.add(this.buttonsHorizontalLayout);
         this.setVisible(false);
     }
 
