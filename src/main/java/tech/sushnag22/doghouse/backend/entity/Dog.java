@@ -30,15 +30,15 @@ public class Dog {
     @Column(name = "location")
     private String location;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "breed_id", nullable = true)
     private Breed breed;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
-    @OneToOne(mappedBy = "dog", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "dog", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     private Adoption adoption;
 
     public Dog() {
