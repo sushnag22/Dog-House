@@ -1,10 +1,7 @@
 package tech.sushnag22.doghouse.ui.views.adopter;
 
-import com.vaadin.flow.component.select.Select;
 import tech.sushnag22.doghouse.backend.entity.Adopter;
-import tech.sushnag22.doghouse.backend.entity.User;
 import tech.sushnag22.doghouse.backend.repository.AdopterRepository;
-import tech.sushnag22.doghouse.backend.repository.UserRepository;
 import tech.sushnag22.doghouse.ui.components.ConfirmDialog;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyNotifier;
@@ -23,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringComponent
 public class AdopterEditView extends VerticalLayout implements KeyNotifier {
     private final AdopterRepository adopterRepository;
-    private final UserRepository userRepository;
     private Adopter adopter;
     private final Button saveButton;
     private final Button deleteButton;
@@ -36,14 +32,12 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
     private final TextField email;
     private final TextField phone;
     private final TextField address;
-    private final Select<User> user;
     private final ConfirmDialog confirmDialog;
     private AdopterEditViewHandler adopterEditViewHandler;
 
     @Autowired
-    public AdopterEditView(AdopterRepository adopterRepository, UserRepository userRepository) {
+    public AdopterEditView(AdopterRepository adopterRepository) {
         this.adopterRepository = adopterRepository;
-        this.userRepository = userRepository;
 
         this.saveButton = new Button("Save", VaadinIcon.CHECK.create());
         this.deleteButton = new Button("Delete", VaadinIcon.TRASH.create());
@@ -66,14 +60,6 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
         this.phone = new TextField("Phone Number: ");
         this.address = new TextField("Address: ");
 
-        this.user = new Select<>();
-
-        this.user.setLabel("User: ");
-
-        this.user.setItemLabelGenerator(User::getUsername);
-
-        this.user.setItems(this.userRepository.findAll());
-
         this.binder = new Binder<>(Adopter.class);
         this.binder.bindInstanceFields(this);
 
@@ -84,7 +70,6 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
             this.adopter = null;
         });
 
-        this.add(this.user);
         this.add(name);
         this.add(birthDate);
         this.add(gender);
