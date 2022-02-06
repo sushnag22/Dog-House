@@ -14,12 +14,13 @@ public class User {
 
     @NotNull
     @NotEmpty
-    @Column(name = "username", unique = true)
+    @Column(name = "username", unique = true, nullable = false)
     @Size(min = 4, max = 20)
     private String username = "";
 
     @NotNull
     @NotEmpty
+    @Column(name = "password", nullable = false)
     @Size(min = 4)
     private String password = "";
 
@@ -31,7 +32,7 @@ public class User {
 
     @NotNull
     @NotEmpty
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName = "";
 
     @NotNull
