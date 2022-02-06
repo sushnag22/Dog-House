@@ -12,7 +12,7 @@ public class Adopter {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "birth_date")
@@ -21,13 +21,13 @@ public class Adopter {
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false)
     private String phone;
 
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
     private String address;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
