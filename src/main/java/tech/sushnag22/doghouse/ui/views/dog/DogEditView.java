@@ -1,7 +1,9 @@
 package tech.sushnag22.doghouse.ui.views.dog;
 
 import com.vaadin.flow.component.select.Select;
+import tech.sushnag22.doghouse.backend.entity.Breed;
 import tech.sushnag22.doghouse.backend.entity.User;
+import tech.sushnag22.doghouse.backend.repository.BreedRepository;
 import tech.sushnag22.doghouse.backend.repository.UserRepository;
 import tech.sushnag22.doghouse.backend.entity.Dog;
 import tech.sushnag22.doghouse.backend.repository.DogRepository;
@@ -23,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringComponent
 public class DogEditView extends VerticalLayout implements KeyNotifier {
     private final DogRepository dogRepository;
+    private final BreedRepository breedRepository;
     private final UserRepository userRepository;
     private Dog dog;
     private final Button saveButton;
@@ -36,13 +39,15 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
     private final TextField colour;
     private final TextField description;
     private final TextField location;
+    private final Select<Breed> breed;
     private final Select<User> user;
     private final ConfirmDialog confirmDialog;
     private DogEditViewHandler dogEditViewHandler;
 
     @Autowired
-    public DogEditView(DogRepository dogRepository, UserRepository userRepository) {
+    public DogEditView(DogRepository dogRepository, BreedRepository breedRepository, UserRepository userRepository) {
         this.dogRepository = dogRepository;
+        this.breedRepository = breedRepository;
         this.userRepository = userRepository;
 
         this.saveButton = new Button("Save", VaadinIcon.CHECK.create());
@@ -66,12 +71,14 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
         this.description = new TextField("Description: ");
         this.location = new TextField("Location: ");
 
+        this.breed = new Select<>();
+        this.breed.setLabel("Breed: ");
+        this.breed.setItemLabelGenerator(Breed::getName);
+        this.breed.setItems(this.breedRepository.findAll());
+
         this.user = new Select<>();
-
         this.user.setLabel("User: ");
-
         this.user.setItemLabelGenerator(User::getUsername);
-
         this.user.setItems(this.userRepository.findAll());
 
         this.binder = new Binder<>(Dog.class);
@@ -84,6 +91,7 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
             this.dog = null;
         });
 
+        this.add(this.breed);
         this.add(this.user);
         this.add(this.name);
         this.add(this.birthDate);
