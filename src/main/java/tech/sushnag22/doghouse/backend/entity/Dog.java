@@ -12,7 +12,7 @@ public class Dog {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "birth_date")
@@ -27,7 +27,7 @@ public class Dog {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "location")
+    @Column(name = "location", nullable = false)
     private String location;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
