@@ -18,11 +18,11 @@ public class Adoption {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        @Column(nullable = false)
+        @Column(name = "adoption_on",nullable = false)
         private LocalDateTime adoptionDate;
 
         @ManyToOne(cascade = CascadeType.MERGE, optional = false)
-        @JoinColumn(name = "adopter_id", referencedColumnName = "id", nullable = false)
+        @JoinColumn(name = "adopter_id", referencedColumnName = "id", nullable = true)
         private Adopter adopter;
 
         @OneToOne(cascade = CascadeType.MERGE, optional = false)
