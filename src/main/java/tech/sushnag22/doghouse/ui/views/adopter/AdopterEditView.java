@@ -36,7 +36,6 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
     private final TextField email;
     private final TextField phone;
     private final TextField address;
-    private final Select<User> user;
     private final ConfirmDialog confirmDialog;
     private AdopterEditViewHandler adopterEditViewHandler;
 
@@ -66,11 +65,6 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
         this.phone = new TextField("Phone Number: ");
         this.address = new TextField("Address: ");
 
-        this.user = new Select<>();
-        this.user.setLabel("User: ");
-        this.user.setItemLabelGenerator(User::getUsername);
-        this.user.setItems(this.userRepository.findAll());
-
         this.binder = new Binder<>(Adopter.class);
         this.binder.bindInstanceFields(this);
 
@@ -81,7 +75,6 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
             this.adopter = null;
         });
 
-        this.add(this.user);
         this.add(name);
         this.add(birthDate);
         this.add(gender);
