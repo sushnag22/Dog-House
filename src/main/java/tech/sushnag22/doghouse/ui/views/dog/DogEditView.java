@@ -39,8 +39,6 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
     private final TextField colour;
     private final TextField description;
     private final TextField location;
-    private final Select<Breed> breed;
-    private final Select<User> user;
     private final ConfirmDialog confirmDialog;
     private DogEditViewHandler dogEditViewHandler;
 
@@ -71,16 +69,6 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
         this.description = new TextField("Description: ");
         this.location = new TextField("Location: ");
 
-        this.breed = new Select<>();
-        this.breed.setLabel("Breed: ");
-        this.breed.setItemLabelGenerator(Breed::getName);
-        this.breed.setItems(this.breedRepository.findAll());
-
-        this.user = new Select<>();
-        this.user.setLabel("User: ");
-        this.user.setItemLabelGenerator(User::getUsername);
-        this.user.setItems(this.userRepository.findAll());
-
         this.binder = new Binder<>(Dog.class);
         this.binder.bindInstanceFields(this);
 
@@ -91,8 +79,6 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
             this.dog = null;
         });
 
-        this.add(this.breed);
-        this.add(this.user);
         this.add(this.name);
         this.add(this.birthDate);
         this.add(this.gender);
