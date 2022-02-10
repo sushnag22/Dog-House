@@ -18,7 +18,6 @@ import tech.sushnag22.doghouse.ui.views.breed.BreedView;
 import tech.sushnag22.doghouse.ui.views.dog.DogView;
 import tech.sushnag22.doghouse.ui.views.auth.SignInView;
 import tech.sushnag22.doghouse.ui.views.home.HomeView;
-import tech.sushnag22.doghouse.ui.views.image.ImageView;
 
 @JsModule("./js/theme-selector.js")
 public class MainLayout extends AppLayout {
@@ -52,9 +51,7 @@ public class MainLayout extends AppLayout {
 
         RouterLink homeLink = new RouterLink("Home", HomeView.class);
         homeLink.setHighlightCondition(HighlightConditions.sameLocation());
-        RouterLink addImageLink = new RouterLink("Add Dog Image", ImageView.class);
-        homeLink.setHighlightCondition(HighlightConditions.sameLocation());
-        RouterLink addBreedLink = new RouterLink("Add Dog Breed", BreedView.class);
+        RouterLink addBreedLink = new RouterLink("Edit Dog Breed Details", BreedView.class);
         addBreedLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink editDogLink = new RouterLink("Edit Dog Details", DogView.class);
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
@@ -64,7 +61,7 @@ public class MainLayout extends AppLayout {
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
         RouterLink logOutLink = new RouterLink("Log out", SignInView.class);
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
-        addToDrawer(new VerticalLayout(homeLink, addImageLink, addBreedLink, editDogLink, editAdopterLink, manageAdoptionLink,logOutLink));
+        addToDrawer(new VerticalLayout(homeLink, addBreedLink, editDogLink, editAdopterLink, manageAdoptionLink,logOutLink));
     }
 
 }
