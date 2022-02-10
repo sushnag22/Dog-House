@@ -1,8 +1,5 @@
 package tech.sushnag22.doghouse.ui.views.dog;
 
-import com.vaadin.flow.component.select.Select;
-import tech.sushnag22.doghouse.backend.entity.Breed;
-import tech.sushnag22.doghouse.backend.entity.User;
 import tech.sushnag22.doghouse.backend.repository.BreedRepository;
 import tech.sushnag22.doghouse.backend.repository.UserRepository;
 import tech.sushnag22.doghouse.backend.entity.Dog;
