@@ -5,6 +5,13 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "dog")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "findAllDogs",
+                procedureName = "findAllDogs",
+                resultClasses = { Dog.class }
+                )
+})
 public class Dog {
 
     @Id
