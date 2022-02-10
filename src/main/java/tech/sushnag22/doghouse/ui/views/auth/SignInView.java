@@ -16,7 +16,7 @@ public class SignInView  extends VerticalLayout {
         this.userService = userService;
         SignInForm signInForm = new SignInForm(userService);
         H1 title = new H1("Dog Adoption Management System");
-        H2 header = new H2("Sign in");
+        H2 header = new H2("Sign In");
         HorizontalLayout horizontalLayout = new HorizontalLayout(signInForm);
         horizontalLayout.setWidthFull();
         horizontalLayout.setAlignItems(Alignment.CENTER);
