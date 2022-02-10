@@ -10,7 +10,13 @@ import java.time.LocalDateTime;
                 @Index(name = "idxDog", columnList = "dog_id")
         }
 )
-
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "findAllAdoptions",
+                procedureName = "findAllAdoptions",
+                resultClasses = { Adoption.class }
+        )
+})
 @Entity
 public class Adoption {
 
