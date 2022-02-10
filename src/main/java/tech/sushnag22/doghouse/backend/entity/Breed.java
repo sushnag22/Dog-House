@@ -5,6 +5,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "breed")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "findAllBreeds",
+                procedureName = "findAllBreeds",
+                resultClasses = { Adopter.class }
+        )
+})
 public class Breed {
 
     @Id
