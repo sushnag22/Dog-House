@@ -9,7 +9,7 @@ import javax.persistence.*;
         @NamedStoredProcedureQuery(
                 name = "findAllBreeds",
                 procedureName = "findAllBreeds",
-                resultClasses = { Adopter.class }
+                resultClasses = { Breed.class }
         )
 })
 public class Breed {
