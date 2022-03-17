@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
     List<Adopter> findByUsernameContainsIgnoreCase(String name);
-    @Procedure(name = "findAllUsers")
+    @Procedure(procedureName = "findAllUsers")
     void findAllUsers();
 }
