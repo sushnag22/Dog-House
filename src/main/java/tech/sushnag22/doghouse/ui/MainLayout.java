@@ -23,13 +23,8 @@ import tech.sushnag22.doghouse.ui.views.home.HomeView;
 public class MainLayout extends AppLayout {
 
     public MainLayout() {
-
-        if (ComponentUtil.getData(UI.getCurrent(), User.class) == null) {
-            UI.getCurrent().navigate("error");
-        } else {
             createHeader();
             createDrawer();
-        }
     }
 
     private void createHeader() {

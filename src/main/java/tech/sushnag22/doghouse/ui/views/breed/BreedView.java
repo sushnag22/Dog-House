@@ -6,11 +6,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.backend.entity.Breed;
 import tech.sushnag22.doghouse.backend.repository.BreedRepository;
 import tech.sushnag22.doghouse.ui.MainLayout;
 
+@PreserveOnRefresh
 @Route(value = "add-breed", layout = MainLayout.class)
 @PageTitle("Add Dog Breed")
 public class BreedView extends VerticalLayout {
@@ -56,5 +58,4 @@ public class BreedView extends VerticalLayout {
                         breedRepository.findAll()
         );
     }
-
 }

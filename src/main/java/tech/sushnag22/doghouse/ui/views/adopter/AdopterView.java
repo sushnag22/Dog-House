@@ -6,11 +6,14 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.backend.entity.Adopter;
 import tech.sushnag22.doghouse.backend.repository.AdopterRepository;
 import tech.sushnag22.doghouse.ui.MainLayout;
 
+
+@PreserveOnRefresh
 @Route(value = "edit-adopter", layout = MainLayout.class)
 @PageTitle("Edit Adopter Details")
 public class AdopterView extends VerticalLayout {
@@ -30,7 +33,7 @@ public class AdopterView extends VerticalLayout {
         this.textField.addValueChangeListener(e -> refreshGrid(e.getValue()));
 
         this.grid = new Grid<>(Adopter.class);
-        this.grid.setColumns("name" ,"birthDate", "gender", "email", "phone", "address");
+        this.grid.setColumns("user.username", "name", "birthDate", "gender", "email", "phone", "address");
         this.grid.asSingleSelect().addValueChangeListener(e -> adopterEditView.setAdopter(e.getValue()));
         this.refreshGrid(null);
 

@@ -5,9 +5,11 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.ui.MainLayout;
 
+@PreserveOnRefresh
 @PageTitle("Dog House")
 @Route(value = "home", layout = MainLayout.class)
 public class HomeView extends VerticalLayout {
@@ -27,5 +29,4 @@ public class HomeView extends VerticalLayout {
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
         getStyle().set("text-align", "center");
     }
-
 }

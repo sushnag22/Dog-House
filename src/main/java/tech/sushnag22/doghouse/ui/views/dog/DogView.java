@@ -7,11 +7,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.backend.entity.Dog;
 import tech.sushnag22.doghouse.backend.repository.DogRepository;
 import tech.sushnag22.doghouse.ui.MainLayout;
 
+@PreserveOnRefresh
 @Route(value = "edit-dog", layout = MainLayout.class)
 @PageTitle("Edit Dog Details")
 public class DogView extends VerticalLayout {
@@ -21,7 +23,7 @@ public class DogView extends VerticalLayout {
     private final Button newButton;
     private final DogEditView dogEditView;
 
-    public DogView(DogRepository dogRepository, DogEditView dogEditView){
+    public DogView(DogRepository dogRepository, DogEditView dogEditView) {
         this.dogRepository = dogRepository;
         this.dogEditView = dogEditView;
 
@@ -30,7 +32,7 @@ public class DogView extends VerticalLayout {
         this.textField.addValueChangeListener(e -> this.refreshGrid(e.getValue()));
 
         this.grid = new Grid<>(Dog.class);
-        this.grid.setColumns("name", "birthDate", "gender", "colour", "description", "location");
+        this.grid.setColumns("breed.name", "user.username", "name", "birthDate", "gender", "colour", "description", "location");
         this.grid.asSingleSelect().addValueChangeListener(e -> dogEditView.setDog(e.getValue()));
         this.refreshGrid(null);
 
@@ -57,5 +59,4 @@ public class DogView extends VerticalLayout {
                         dogRepository.findAll()
         );
     }
-
 }

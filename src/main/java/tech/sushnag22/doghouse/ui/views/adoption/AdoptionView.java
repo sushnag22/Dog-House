@@ -7,11 +7,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 import tech.sushnag22.doghouse.backend.entity.Adoption;
 import tech.sushnag22.doghouse.backend.repository.AdoptionRepository;
 import tech.sushnag22.doghouse.ui.MainLayout;
 
+@PreserveOnRefresh
 @Route(value = "manage-adoption", layout = MainLayout.class)
 @PageTitle("Manage Dog Adoption")
 public class AdoptionView extends VerticalLayout {
