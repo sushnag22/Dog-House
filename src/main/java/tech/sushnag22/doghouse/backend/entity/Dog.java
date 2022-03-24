@@ -37,15 +37,15 @@ public class Dog {
     @Column(name = "location", nullable = false)
     private String location;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "breed_id", nullable = true)
     private Breed breed;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
-    @OneToOne(mappedBy = "dog", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @OneToOne(mappedBy = "dog", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Adoption adoption;
 
     public Dog() {
@@ -140,10 +140,4 @@ public class Dog {
     public void setAdoption(Adoption adoption) {
         this.adoption = adoption;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        return obj != null && obj.getClass().equals(this.getClass()) && ((Dog)obj).getId().equals(this.getId());
-    }
-
 }

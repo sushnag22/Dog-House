@@ -160,5 +160,4 @@ public class User {
 
         return this.getId().equals(u.getId());
     }
-
 }

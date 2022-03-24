@@ -37,8 +37,8 @@ public class Adopter {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "user_id", nullable = true)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Adopter() {
@@ -117,10 +117,4 @@ public class Adopter {
     public void setUser(User user) {
         this.user = user;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        return obj != null && obj.getClass().equals(this.getClass()) && ((Adopter)obj).getId().equals(this.getId());
-    }
-
 }
