@@ -24,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class AdopterEditView extends VerticalLayout implements KeyNotifier {
     private final AdopterRepository adopterRepository;
     private final UserRepository userRepository;
+    private final Select<User> user;
     private Adopter adopter;
     private final Button saveButton;
     private final Button deleteButton;
@@ -58,12 +59,20 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
 
         this.buttonsHorizontalLayout = new HorizontalLayout(saveButton, deleteButton, cancelButton);
 
+        this.user = new Select<>();
+
         this.name = new TextField("Name: ");
         this.birthDate = new DatePicker("Birth Date: ");
         this.gender = new TextField("Gender: ");
         this.email = new TextField("Email ID: ");
         this.phone = new TextField("Phone Number: ");
         this.address = new TextField("Address: ");
+
+        this.user.setLabel("User:");
+
+        this.user.setItemLabelGenerator(User::getUsername);
+
+        this.user.setItems(this.userRepository.findAll());
 
         this.binder = new Binder<>(Adopter.class);
         this.binder.bindInstanceFields(this);
@@ -75,6 +84,7 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
             this.adopter = null;
         });
 
+        this.add(this.user);
         this.add(name);
         this.add(birthDate);
         this.add(gender);

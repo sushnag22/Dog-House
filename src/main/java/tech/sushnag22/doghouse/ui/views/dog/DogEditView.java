@@ -1,5 +1,8 @@
 package tech.sushnag22.doghouse.ui.views.dog;
 
+import com.vaadin.flow.component.select.Select;
+import tech.sushnag22.doghouse.backend.entity.Breed;
+import tech.sushnag22.doghouse.backend.entity.User;
 import tech.sushnag22.doghouse.backend.repository.BreedRepository;
 import tech.sushnag22.doghouse.backend.repository.UserRepository;
 import tech.sushnag22.doghouse.backend.entity.Dog;
@@ -24,6 +27,8 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
     private final DogRepository dogRepository;
     private final BreedRepository breedRepository;
     private final UserRepository userRepository;
+    private final Select<User> user;
+    private final Select<Breed> breed;
     private Dog dog;
     private final Button saveButton;
     private final Button deleteButton;
@@ -59,12 +64,24 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
 
         this.buttonsHorizontalLayout = new HorizontalLayout(saveButton, deleteButton, cancelButton);
 
+        this.user = new Select<>();
+        this.breed = new Select<>();
+
         this.name = new TextField("Name: ");
         this.birthDate = new DatePicker("Birth Date: ");
         this.gender = new TextField("Gender: ");
         this.colour = new TextField("Colour: ");
         this.description = new TextField("Description: ");
         this.location = new TextField("Location: ");
+
+        this.breed.setLabel("Breed:");
+        this.user.setLabel("User:");
+
+        this.breed.setItemLabelGenerator(Breed::getName);
+        this.user.setItemLabelGenerator(User::getUsername);
+
+        this.breed.setItems(this.breedRepository.findAll());
+        this.user.setItems(this.userRepository.findAll());
 
         this.binder = new Binder<>(Dog.class);
         this.binder.bindInstanceFields(this);
@@ -76,6 +93,8 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
             this.dog = null;
         });
 
+        this.add(this.breed);
+        this.add(this.user);
         this.add(this.name);
         this.add(this.birthDate);
         this.add(this.gender);
