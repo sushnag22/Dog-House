@@ -7,8 +7,14 @@ import javax.persistence.*;
 @Table(name = "breed")
 @NamedStoredProcedureQueries({
         @NamedStoredProcedureQuery(
-                name = "findAllBreeds",
+                name = "findBreeds",
                 procedureName = "findAllBreeds",
+                parameters = {
+                        @StoredProcedureParameter(
+                                mode = ParameterMode.IN,
+                                name = "BreedName",
+                                type = String.class
+                        )},
                 resultClasses = { Breed.class }
         )
 })
