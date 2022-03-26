@@ -48,10 +48,6 @@ public class AdoptionEditView extends VerticalLayout implements KeyNotifier {
         this.adopterRepository = adopterRepository;
         this.dogRepository = dogRepository;
 
-        if(ComponentUtil.getData(UI.getCurrent(), Dog.class) == null) {
-            UI.getCurrent().navigate("error");
-        }
-
         this.saveButton = new Button("Save", VaadinIcon.CHECK.create());
         this.deleteButton = new Button("Delete", VaadinIcon.TRASH.create());
         this.cancelButton = new Button("Cancel");
