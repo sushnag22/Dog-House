@@ -5,13 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "adopter")
-@NamedStoredProcedureQueries({
-        @NamedStoredProcedureQuery(
-                name = "findAllAdopters",
-                procedureName = "findAllAdopters",
-                resultClasses = { Adopter.class }
-        )
-})
+
 public class Adopter {
 
     @Id

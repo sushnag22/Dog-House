@@ -1,8 +1,6 @@
 package tech.sushnag22.doghouse.ui.views.adoption;
 
-import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.KeyNotifier;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datetimepicker.DateTimePicker;
 import com.vaadin.flow.component.icon.VaadinIcon;
