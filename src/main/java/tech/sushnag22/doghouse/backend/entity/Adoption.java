@@ -3,13 +3,7 @@ package tech.sushnag22.doghouse.backend.entity;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Table(
-        name = "adoption",
-        indexes = {
-                @Index(name = "idxAdopter", columnList = "adopter_id"),
-                @Index(name = "idxDog", columnList = "dog_id")
-        }
-)
+@Table(name = "adoption")
 
 @Entity
 public class Adoption {

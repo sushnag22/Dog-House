@@ -6,13 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "user")
-@NamedStoredProcedureQueries({
-        @NamedStoredProcedureQuery(
-                name = "findAllUsers",
-                procedureName = "findAllUsers",
-                resultClasses = { User.class }
-        )
-})
+
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

@@ -1,6 +1,4 @@
 INSERT INTO `user` (username, password, email, first_name, last_name) VALUES ('anonymous', 'user1', 'anonymous@gmail.com', 'Anonymous', 'User');
-INSERT INTO `user` (username, password, email, first_name, last_name) VALUES ('sushruth', 'user2', 'sushruth@gmail.com', 'Sushruth', 'Nagaraj');
-INSERT INTO `user` (username, password, email, first_name, last_name) VALUES ('suvanta', 'user3', 'suvanta@gmail.com', 'Suvanta', 'Kulkarni');
 
 INSERT INTO `breed` (name) VALUES ('Dalmatian');
 INSERT INTO `breed` (name) VALUES ('German Shepherd');
