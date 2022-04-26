@@ -143,5 +143,4 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
     public interface DogEditViewHandler {
         void onChange();
     }
-
 }

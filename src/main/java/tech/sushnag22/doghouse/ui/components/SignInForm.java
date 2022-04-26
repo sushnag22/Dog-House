@@ -15,7 +15,6 @@ import tech.sushnag22.doghouse.backend.service.UserService;
 
 public class SignInForm extends FormLayout {
 
-
     private UserService userService;
 
     TextField username = new TextField("Username");
@@ -60,5 +59,4 @@ public class SignInForm extends FormLayout {
             notification.open();
         }
     }
-
 }

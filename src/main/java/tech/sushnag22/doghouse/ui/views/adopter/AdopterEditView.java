@@ -133,5 +133,4 @@ public class AdopterEditView extends VerticalLayout implements KeyNotifier {
     public interface AdopterEditViewHandler {
         void onChange();
     }
-
 }

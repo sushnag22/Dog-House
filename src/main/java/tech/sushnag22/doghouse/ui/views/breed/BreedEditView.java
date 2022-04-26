@@ -103,5 +103,4 @@ public class BreedEditView extends VerticalLayout implements KeyNotifier {
     public interface BreedEditViewHandler {
         void onChange();
     }
-
 }

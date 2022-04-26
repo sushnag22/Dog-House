@@ -58,5 +58,4 @@ public class MainLayout extends AppLayout {
         editDogLink.setHighlightCondition(HighlightConditions.sameLocation());
         addToDrawer(new VerticalLayout(homeLink, addBreedLink, editDogLink, editAdopterLink, manageAdoptionLink,logOutLink));
     }
-
 }

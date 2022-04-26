@@ -30,5 +30,4 @@ public class SignUpView extends VerticalLayout {
         add(title, header, horizontalLayout);
 
     }
-
 }

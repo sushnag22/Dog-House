@@ -59,5 +59,4 @@ public class AdoptionView extends VerticalLayout {
                         adoptionRepository.findAll()
         );
     }
-
 }

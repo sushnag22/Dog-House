@@ -31,5 +31,4 @@ public final class ConfirmDialog extends Dialog {
         this.add(text);
         this.add(horizontalLayout);
     }
-
 }
