@@ -1,4 +1,6 @@
 INSERT INTO `user` (username, password, email, first_name, last_name) VALUES ('anonymous', 'user1', 'anonymous@gmail.com', 'Anonymous', 'User');
+INSERT INTO `user` (username, password, email, first_name, last_name) VALUES ('john', 'user2', 'johndoe@gmail.com', 'John', 'Doe');
+INSERT INTO `user` (username, password, email, first_name, last_name) VALUES ('jack', 'user3', 'jack@gmail.com', 'Jack', 'Hill');
 
 INSERT INTO `breed` (name) VALUES ('Dalmatian');
 INSERT INTO `breed` (name) VALUES ('German Shepherd');
