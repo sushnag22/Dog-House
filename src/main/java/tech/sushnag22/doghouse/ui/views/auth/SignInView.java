@@ -2,6 +2,7 @@ package tech.sushnag22.doghouse.ui.views.auth;
 
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PreserveOnRefresh;
@@ -20,6 +21,7 @@ public class SignInView  extends VerticalLayout {
         SignInForm signInForm = new SignInForm(userService);
         H1 title = new H1("Dog Adoption Management System");
         H2 header = new H2("Sign In");
+        H4 text = new H4("(Or use the default credentials- username: anonymous and password: user1)");
         HorizontalLayout horizontalLayout = new HorizontalLayout(signInForm);
         horizontalLayout.setWidthFull();
         horizontalLayout.setAlignItems(Alignment.CENTER);
@@ -28,6 +30,6 @@ public class SignInView  extends VerticalLayout {
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
         setHorizontalComponentAlignment(Alignment.CENTER, header);
-        add(title, header, horizontalLayout);
+        add(title, header, text, horizontalLayout);
     }
 }
