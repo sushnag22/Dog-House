@@ -31,12 +31,12 @@ public class Dog {
     private String location;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "breed_id", nullable = true)
+    @JoinColumn(name = "breed_id")
     private Breed breed;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "user_id", nullable = true)
-    private User user;
+    @JoinColumn(name = "user_id")
+    private Users users;
 
     @OneToOne(mappedBy = "dog", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private Adoption adoption;
@@ -118,12 +118,12 @@ public class Dog {
         this.breed = breed;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Users users) {
+        this.users = users;
     }
 
     public Adoption getAdoption() {

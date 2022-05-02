@@ -32,7 +32,7 @@ public class Adopter {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Users users;
 
     public Adopter() {
 
@@ -103,11 +103,11 @@ public class Adopter {
         this.address = address;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }
