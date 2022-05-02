@@ -10,12 +10,12 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
-import tech.sushnag22.doghouse.backend.entity.User;
-import tech.sushnag22.doghouse.backend.service.UserService;
+import tech.sushnag22.doghouse.backend.entity.Users;
+import tech.sushnag22.doghouse.backend.service.UsersService;
 
 public class SignInForm extends FormLayout {
 
-    private UserService userService;
+    private UsersService usersService;
 
     TextField username = new TextField("Username");
     PasswordField password = new PasswordField("Password");
@@ -26,10 +26,10 @@ public class SignInForm extends FormLayout {
     Anchor signUp = new Anchor("signup", "Sign Up");
 
 
-    public SignInForm(UserService userService) {
+    public SignInForm(UsersService usersService) {
 
-        this.userService = userService;
-        ComponentUtil.setData( UI.getCurrent() , User.class , null);
+        this.usersService = usersService;
+        ComponentUtil.setData( UI.getCurrent() , Users.class , null);
         signInButton.addClickListener(buttonClickEvent -> SignInEvent());
         signInButton.addClickShortcut(Key.ENTER);
         signInButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
@@ -48,10 +48,10 @@ public class SignInForm extends FormLayout {
 
     public void SignInEvent() {
 
-        User user = userService.findUserByUsernameAndPassword((String)username.getValue(), (String)password.getValue());
+        Users user = usersService.findUserByUsernameAndPassword((String)username.getValue(), (String)password.getValue());
 
         if(user != null) {
-            ComponentUtil.setData( UI.getCurrent() , User.class , user);
+            ComponentUtil.setData( UI.getCurrent() , Users.class , user);
             UI.getCurrent().navigate("home");
         } else {
             com.vaadin.flow.component.notification.Notification notification = new Notification(

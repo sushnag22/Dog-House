@@ -11,12 +11,12 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
-import tech.sushnag22.doghouse.backend.entity.User;
-import tech.sushnag22.doghouse.backend.service.UserService;
+import tech.sushnag22.doghouse.backend.entity.Users;
+import tech.sushnag22.doghouse.backend.service.UsersService;
 
 public class SignUpForm extends FormLayout {
 
-    private UserService userService;
+    private UsersService usersService;
 
     TextField username = new TextField("Username");
     PasswordField password = new PasswordField("Password");
@@ -30,9 +30,9 @@ public class SignUpForm extends FormLayout {
     Anchor goToLoginForm = new Anchor("","Sign In");
 
 
-    public SignUpForm(UserService userService) {
+    public SignUpForm(UsersService usersService) {
 
-        this.userService = userService;
+        this.usersService = usersService;
         signUpButton.addClickListener(buttonClickEvent -> signUpEvent());
         signUpButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         signUpButton.addClickShortcut(Key.ENTER);
@@ -49,19 +49,19 @@ public class SignUpForm extends FormLayout {
     }
 
     public void signUpEvent() {
-        User user = new User(
+        Users users = new Users(
                 username.getValue(),
                 password.getValue(),
                 email.getValue(),
                 firstName.getValue(),
                 lastName.getValue());
-        if(userService.isValid(user) == null) {
+        if(usersService.isValid(users) == null) {
             System.out.println("Success");
-            userService.save(user);
+            usersService.save(users);
             UI.getCurrent().navigate("");
         } else {
             System.out.println("Error");
-            for (String s : userService.isValid(user)) {
+            for (String s : usersService.isValid(users)) {
                 Notification notification = new Notification(s, 3000);
                 notification.open();
             }
