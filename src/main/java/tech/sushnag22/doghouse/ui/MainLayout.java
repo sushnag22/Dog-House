@@ -11,7 +11,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
-import tech.sushnag22.doghouse.backend.entity.User;
+import tech.sushnag22.doghouse.backend.entity.Users;
 import tech.sushnag22.doghouse.ui.views.adopter.AdopterView;
 import tech.sushnag22.doghouse.ui.views.adoption.AdoptionView;
 import tech.sushnag22.doghouse.ui.views.breed.BreedView;
@@ -29,7 +29,7 @@ public class MainLayout extends AppLayout {
 
     private void createHeader() {
 
-        H2 userGreeting = new H2("Hello, " + ComponentUtil.getData(UI.getCurrent(), User.class).getFirstName() + "!");
+        H2 userGreeting = new H2("Hello, " + ComponentUtil.getData(UI.getCurrent(), Users.class).getFirstName() + "!");
 
         userGreeting.addClassName("logo");
         HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), userGreeting);

@@ -32,7 +32,7 @@ public class DogView extends VerticalLayout {
         this.textField.addValueChangeListener(e -> this.refreshGrid(e.getValue()));
 
         this.grid = new Grid<>(Dog.class);
-        this.grid.setColumns("breed.name", "user.username", "name", "birthDate", "gender", "colour", "description", "location");
+        this.grid.setColumns("breed.name", "users.username", "name", "birthDate", "gender", "colour", "description", "location");
         this.grid.asSingleSelect().addValueChangeListener(e -> dogEditView.setDog(e.getValue()));
         this.refreshGrid(null);
 

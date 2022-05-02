@@ -2,9 +2,9 @@ package tech.sushnag22.doghouse.ui.views.dog;
 
 import com.vaadin.flow.component.select.Select;
 import tech.sushnag22.doghouse.backend.entity.Breed;
-import tech.sushnag22.doghouse.backend.entity.User;
+import tech.sushnag22.doghouse.backend.entity.Users;
 import tech.sushnag22.doghouse.backend.repository.BreedRepository;
-import tech.sushnag22.doghouse.backend.repository.UserRepository;
+import tech.sushnag22.doghouse.backend.repository.UsersRepository;
 import tech.sushnag22.doghouse.backend.entity.Dog;
 import tech.sushnag22.doghouse.backend.repository.DogRepository;
 import tech.sushnag22.doghouse.ui.components.ConfirmDialog;
@@ -26,8 +26,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class DogEditView extends VerticalLayout implements KeyNotifier {
     private final DogRepository dogRepository;
     private final BreedRepository breedRepository;
-    private final UserRepository userRepository;
-    private final Select<User> user;
+    private final UsersRepository usersRepository;
+    private final Select<Users> user;
     private final Select<Breed> breed;
     private Dog dog;
     private final Button saveButton;
@@ -45,10 +45,10 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
     private DogEditViewHandler dogEditViewHandler;
 
     @Autowired
-    public DogEditView(DogRepository dogRepository, BreedRepository breedRepository, UserRepository userRepository) {
+    public DogEditView(DogRepository dogRepository, BreedRepository breedRepository, UsersRepository usersRepository) {
         this.dogRepository = dogRepository;
         this.breedRepository = breedRepository;
-        this.userRepository = userRepository;
+        this.usersRepository = usersRepository;
 
         this.saveButton = new Button("Save", VaadinIcon.CHECK.create());
         this.deleteButton = new Button("Delete", VaadinIcon.TRASH.create());
@@ -78,10 +78,10 @@ public class DogEditView extends VerticalLayout implements KeyNotifier {
         this.user.setLabel("User:");
 
         this.breed.setItemLabelGenerator(Breed::getName);
-        this.user.setItemLabelGenerator(User::getUsername);
+        this.user.setItemLabelGenerator(Users::getUsername);
 
         this.breed.setItems(this.breedRepository.findAll());
-        this.user.setItems(this.userRepository.findAll());
+        this.user.setItems(this.usersRepository.findAll());
 
         this.binder = new Binder<>(Dog.class);
         this.binder.bindInstanceFields(this);
