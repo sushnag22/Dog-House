@@ -1,35 +1,35 @@
 package tech.sushnag22.doghouse.backend.service;
 
 import org.springframework.stereotype.Service;
-import tech.sushnag22.doghouse.backend.entity.User;
-import tech.sushnag22.doghouse.backend.repository.UserRepository;
+import tech.sushnag22.doghouse.backend.entity.Users;
+import tech.sushnag22.doghouse.backend.repository.UsersRepository;
 
 import java.util.*;
 
 @Service
-public class UserService {
+public class UsersService {
 
-    private UserRepository userRepository;
+    private UsersRepository usersRepository;
 
-    public List<User> findAll() {
-        return userRepository.findAll();
+    public List<Users> findAll() {
+        return usersRepository.findAll();
     }
 
     public long count() {
-        return userRepository.count();
+        return usersRepository.count();
     }
 
-    public void delete(User user) {
-        userRepository.delete(user);
+    public void delete(Users users) {
+        usersRepository.delete(users);
     }
 
-    public void save(User user){
-        userRepository.save(user);
+    public void save(Users users){
+        usersRepository.save(users);
     }
 
-    public User findById(Integer id) {
+    public Users findById(Integer id) {
 
-        for (User u : userRepository.findAll()) {
+        for (Users u : usersRepository.findAll()) {
             if(u.getId().equals(id)) {
                 return u;
             }
@@ -37,9 +37,9 @@ public class UserService {
         return null;
     }
 
-    public User findUserByUsernameAndPassword(String username, String password) {
+    public Users findUserByUsernameAndPassword(String username, String password) {
 
-        for (User u : userRepository.findAll()) {
+        for (Users u : usersRepository.findAll()) {
             if(u.getUsername().equals(username) && u.getPassword().equals(password)) {
                 return u;
 
@@ -64,27 +64,27 @@ public class UserService {
         return email.matches(pattern);
     }
 
-    public List<String> isValid(User user) {
+    public List<String> isValid(Users users) {
         List<String> notifications = new ArrayList<>();
-        if(!usernameValidator(user.getUsername())) {
+        if(!usernameValidator(users.getUsername())) {
             notifications.add("The username must be between 4 and 20 characters");
         }
-        if(!passwordValidator(user.getPassword())) {
+        if(!passwordValidator(users.getPassword())) {
             notifications.add("The password must be at least 4 characters and contain at least one number");
         }
-        if(!emailValidator(user.getEmail())) {
+        if(!emailValidator(users.getEmail())) {
             notifications.add("Wrong email format");
         }
-        if(user.getFirstName() == null || user.getFirstName().length() == 0) {
+        if(users.getFirstName() == null || users.getFirstName().length() == 0) {
             notifications.add("The first name can't be blank");
         }
-        if(user.getLastName() == null || user.getLastName().length() == 0) {
+        if(users.getLastName() == null || users.getLastName().length() == 0) {
             notifications.add("The last name can't be blank");
         }
-        if(this.findByUsername(user.getUsername())) {
+        if(this.findByUsername(users.getUsername())) {
             notifications.add("The username already exists");
         }
-        if(this.findByEmail(user.getEmail())) {
+        if(this.findByEmail(users.getEmail())) {
             notifications.add("There's already an user registered with this email");
         }
         if(notifications.size() == 0) {
@@ -94,7 +94,7 @@ public class UserService {
     }
 
     public boolean findByUsername(String username) {
-        for (User u : userRepository.findAll()) {
+        for (Users u : usersRepository.findAll()) {
             if(u.getUsername().equals(username)) {
                 return true;
             }
@@ -102,7 +102,7 @@ public class UserService {
         return false;
     }
     public boolean findByEmail(String email) {
-        for (User u : userRepository.findAll()) {
+        for (Users u : usersRepository.findAll()) {
             if(u.getEmail().equals(email)) {
                 return true;
             }
@@ -110,8 +110,7 @@ public class UserService {
         return false;
     }
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-
+    public UsersService(UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
     }
 }

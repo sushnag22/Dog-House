@@ -5,9 +5,9 @@ import javax.validation.constraints.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
@@ -41,17 +41,17 @@ public class User {
     @Column(name = "last_name")
     private String lastName = "";
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "users", cascade = CascadeType.MERGE)
     private Set<Dog> dog;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "users", cascade = CascadeType.MERGE)
     private Set<Adopter> adopter;
 
-    public User() {
+    public Users() {
 
     }
 
-    public User(@NotNull @NotEmpty String username,
+    public Users(@NotNull @NotEmpty String username,
                 @NotNull @NotEmpty String password,
                 @Email @NotNull @NotEmpty String email,
                 @NotNull @NotEmpty String firstName,
@@ -146,11 +146,11 @@ public class User {
             return true;
         }
 
-        if (!(o instanceof User)) {
+        if (!(o instanceof Users)) {
             return false;
         }
 
-        User u = (User) o;
+        Users u = (Users) o;
 
         return this.getId().equals(u.getId());
     }
