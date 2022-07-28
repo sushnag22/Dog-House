@@ -8,4 +8,4 @@
 
 ### About the project
 
-Dog House is a simple CRUD app
+Dog House is a simple web application to implement the CRUD (create, read, update, and delete) operations. Built with Java, Spring Boot, Vaadin Flow, Spring Data JPA, PostgreSQL and Heroku.
