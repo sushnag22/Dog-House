@@ -12,4 +12,4 @@ Dog House is a simple web application to implement the CRUD (create, read, updat
 
 ### Live link
 
-See the deployed website: https://dog-house-app.herokuapp.com/
+Website: https://dog-house-app.herokuapp.com/
