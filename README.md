@@ -2,8 +2,7 @@
   <h1 align="center">Dog House</h1>
   <p align="center">
     Dog adoption management system built with Vaadin Flow, Spring Boot, Spring Data JPA, PostgreSQL and Heroku <br>
-    <img src="https://img.icons8.com/windows/30/3498db/vaadin.png" title="Vaadin"><img src="https://img.icons8.com/color/30/000000/spring-logo.png" alt="Spring Boot and Spring Data"><img src="https://img.icons8.com/color/30/000000/postgresql.png" alt="PostgreSQL"><img src="https://user-images.githubusercontent.com/74103829/182914273-2d4e6190-e5ff-4f2c-80b6-3e63ef42f0e5.png" alt="Heroku" width = 25>
-
+    <img src="https://img.icons8.com/windows/30/3498db/vaadin.png" title="Vaadin"><img src="https://img.icons8.com/color/30/000000/spring-logo.png" alt="Spring Boot and Spring Data"><img width="35" height="35" src="https://img.icons8.com/color/35/postgreesql.png" alt="postgreesql"/>
   </p>
 </p>
 
@@ -22,4 +21,4 @@ In an overview of this application, the user of the website who is an admin can 
 4. Add, remove, modify, filter adoption details and search adopters who have adopted a dog - The user can add, remove, modify and filter the adoptions and search for an adopter who has adopted a dog.
 5. Sign out option - Existing users can sign out of their accounts and quit the application.
 
-### Live link : https://dog-house-app.herokuapp.com/
+### Link : https://dog-house.onrender.com/
